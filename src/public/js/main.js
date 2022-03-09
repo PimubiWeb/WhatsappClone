@@ -12,8 +12,11 @@ $(function() {
     const $nickForm = $('#nickForm');
     const $nickError = $('#nickError');
     const $nickname = $('#nickname');
+    // const $nickstatus = $('#nickstatus');
+    // const $nickavatar = $('#nickavatar');
 
-    const $users = $('usernames');
+    // obteniendo la lista de usuarios
+    const $users = $('#usernames');
 
     // evento de registrar un nuevo usuario
     $nickForm.submit( e => {
@@ -44,5 +47,14 @@ $(function() {
     socket.on('new message', function(data) {
         $chat.append(data + '<br/>'); //metemos en la sala del chat
     })
+
+    //socket envia la lista de usuarios
+    socket.on('usernames', data => {
+        let html = '';
+        for(let i = 0; i< data.length; i++){
+            html += `<p> <i class='bx bxs-user'></i> ${data[i]}</p>` 
+        }
+        $users.html(html);
+    });
 
 });

@@ -22,12 +22,20 @@
     <!-- DIV QUE MUESTRA EL LOGIN DE USUARIO -->
     <div class="card col-md-4 mt-5 mx-auto" id="loginChat">
         <div class="card-header">
-            <h3>Enter your username:</h3>
+            <h3>Enter your username and status:</h3>
         </div>
         <p id="nickError"></p>
         <div class="card-body">
             <form id="nickForm">
-                <input type="text" id="nickname" class="form-control">
+                <input type="text" id="nickname" class="form-control" placeholder="enter your username">
+                <!-- <input type="text" id="nickstatus" class="form-control mt-2" placeholder="enter your status"> -->
+                <!-- <select class="form-select mt-2" aria-label="Default select example">
+                    <option selected>Avatar</option>
+                    <option id="nickavatar" value="1">One</option>
+                    <option id="nickavatar" value="2">Two</option>
+                    <option id="nickavatar" value="3">Three</option>
+                  </select> -->
+
                 <button type="submit" class="btn btn-success mt-2">
                     Send <i class='bx bxs-send' ></i>
                 </button>
