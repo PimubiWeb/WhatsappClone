@@ -2,10 +2,7 @@ module.exports = function (io) {
 
     //lista de usuarios, hace la simulacion de mi base de datos
     let nicknames = [
-        'pablo',
-        'german',
-        'fer',
-        'rut'
+
     ];
 
     let status = [
@@ -26,16 +23,30 @@ module.exports = function (io) {
                 callback(true);
                 socket.nickname = data;
                 nicknames.push(socket.nickname);
-                //emit que envia la lista usuarios
-                io.sockets.emit('usernames', nicknames);
-
+                updateNicknames();
             }
         });
 
         //socket recoge evento send mensage del main.js
-        socket.on('send message', function(data) { //data sera el valor pasado por $messageBox.val() del main.js
-            io.sockets.emit('new message', data);
+        socket.on('send message', data => { //data sera el valor pasado por $messageBox.val() del main.js
+            io.sockets.emit('new message', {
+                msg: data,
+                nick: socket.nickname
+            });
         });
+
+        //socket para desconectar a un usuario dentro de la lista de usuarios
+        socket.on('disconnect', data => {
+            if(!socket.nickname) return;
+            nicknames.splice(nicknames.indexOf(socket.nickname), 1);
+            updateNicknames();
+            
+        });
+
+        //funcion que hace un emit que envia la lista usuarios
+        function updateNicknames() {
+            io.sockets.emit('usernames', nicknames);
+        }
     });
 
 }
