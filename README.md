@@ -1,4 +1,7 @@
 # WhatsappClone
+
+[link production](https://pimu-whatsappclone.herokuapp.com/)
+
 Se pide la creación de un clon de la plataforma web de WhatsApp basado en NodeJS. Aunque la funcionalidad no será exactamente la misma, se debe intentar copiar la interfaz con el mayor detalle. Antes de poder acceder a la web, el usuario debe identificarse mediante un nombre, un estado y una imagen, que puede escogerse de una lista predefinida de avatares. Sólo se debe poder acceder estando identificado.
 
 Una vez hecho, en el panel izquierdo se mostrará la lista de usuarios conectados en ese momento. En el central, tendremos acceso a una sala común de chat en la que se encontrarán todos los usuarios. El servidor deberá informar a los usuarios cada vez que alguien entra o sale del chat. Del mismo modo, debe reflejarse también cuando alguien está escribiendo.
