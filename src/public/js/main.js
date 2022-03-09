@@ -45,7 +45,7 @@ $(function() {
 
     //new message es el evento enviado desde socket.js que envia la data, es decir, el mensaje que envia un usuario
     socket.on('new message', function(data) {
-        $chat.append('<b>' + data.nick + '</b>: '+ data.msg + '<br/>'); //metemos en la sala del chat
+        $chat.append('<b>' + data.nick + ' </b>: '+ data.msg + '<br/>'); //metemos en la sala del chat
     })
 
     //socket envia la lista de usuarios
